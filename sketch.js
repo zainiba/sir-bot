@@ -33,7 +33,6 @@ function draw() {
   //making ears pop
   micLevel = mic.getLevel();
   earsPop = map(micLevel, 0, .3, 1, 48);
-  console.log(micLevel);
   // bolt1.display();
   // bolt2.display();
   bolt3.display();
@@ -77,7 +76,6 @@ function mouseMoved() {
 
 
 function mousePressed() {
-  if (mousePressed) {
     mic = new p5.AudioIn();
     mic.start();
     emerg = !emerg;
