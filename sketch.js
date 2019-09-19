@@ -64,6 +64,7 @@ function draw() {
   if (value > 255) {
     value = 50;
   }
+}
 
 function mouseMoved() {
   if (mouseMoved) {
@@ -91,7 +92,7 @@ function mousePressed() {
   }
 
 }
-}
+
 
 
 
