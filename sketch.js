@@ -46,7 +46,7 @@ function draw() {
   bolt4.move();
 
 
-  // drawBolt();  
+  // drawBolt();
   drawEar(earsPop);
   drawAnt();
   drawHead();
@@ -58,24 +58,20 @@ function draw() {
     fill(128 + sin(frameCount * 0.1) * 128);
     text('EMERGENCY', width * .55, height * .1);
   }
-  
+
     //Changes antenna color6
   value = value + 3;
   if (value > 255) {
     value = 50;
   }
-}
 
 function mouseMoved() {
-
-  
-    if (mouseMoved) {
+  if (mouseMoved) {
     eye = eye + .5;
-    if (eye > 60) {
-      eye = 1;
-    }
   }
-
+  if (eye > 60) {
+    eye = 1;
+  }
 }
 
 
@@ -86,7 +82,7 @@ function mousePressed() {
 
   }
 
-  //Changes head color 
+  //Changes head color
   if (mousePressed) {
     head = head + 70;
     if (head > 255) {
