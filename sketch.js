@@ -15,8 +15,6 @@ let bolt4;
 let eye = 35;
 
 function setup() {
-  mic = new p5.AudioIn()
-  mic.start();
   createCanvas(500, 500);
   noStroke();
 
