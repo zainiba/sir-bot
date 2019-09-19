@@ -15,8 +15,7 @@ let bolt4;
 let eye = 35;
 
 function setup() {
-  mic = new p5.AudioIn()
-  mic.start();
+
   createCanvas(500, 500);
   noStroke();
 
@@ -32,6 +31,7 @@ function draw() {
   clear();
   background(20, 30, 50);
   //making ears pop
+
   micLevel = mic.getLevel();
   earsPop = map(micLevel, 0, .3, 1, 48);
 
@@ -77,6 +77,12 @@ function mouseMoved() {
 
 
 function mousePressed() {
+  
+  if (mousePressed) {
+    mic = new p5.AudioIn();
+    mic.start();
+  }
+  
   if (mousePressed) {
     emerg = !emerg;
 
