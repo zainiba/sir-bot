@@ -85,7 +85,7 @@ function mousePressed() {
     mic.start();
     emerg = !emerg;
     userClicked = true;
-  }
+
 
   //Changes head color
   if (mousePressed) {
