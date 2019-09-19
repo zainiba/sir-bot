@@ -88,7 +88,6 @@ function mousePressed() {
 
 
   //Changes head color
-  if (mousePressed) {
     head = head + 70;
     if (head > 255) {
       head = 0;
