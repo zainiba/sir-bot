@@ -13,10 +13,10 @@ let bolt2;
 let bolt3;
 let bolt4;
 let eye = 35;
-let userClicked = false;
 
 function setup() {
-
+  mic = new p5.AudioIn()
+  mic.start();
   createCanvas(500, 500);
   noStroke();
 
@@ -29,14 +29,12 @@ function setup() {
 }
 
 function draw() {
-
-  if (userClicked) {
-
   clear();
-  background(20, 30, 50);
+  background(10, 30, 50);
   //making ears pop
   micLevel = mic.getLevel();
   earsPop = map(micLevel, 0, .3, 1, 48);
+
   // bolt1.display();
   // bolt2.display();
   bolt3.display();
@@ -67,25 +65,26 @@ function draw() {
     value = 50;
   }
 }
-}
 
 function mouseMoved() {
-  if (mouseMoved) {
+
+
+    if (mouseMoved) {
     eye = eye + .5;
+    if (eye > 60) {
+      eye = 1;
+    }
   }
-  if (eye > 60) {
-    eye = 1;
-  }
+
 }
 
 
 
 function mousePressed() {
-    mic = new p5.AudioIn();
-    mic.start();
+  if (mousePressed) {
     emerg = !emerg;
-    userClicked = true;
 
+  }
 
   //Changes head color
   if (mousePressed) {
@@ -95,9 +94,7 @@ function mousePressed() {
     }
   }
 
-
-
-
+}
 
 
 
