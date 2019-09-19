@@ -13,6 +13,7 @@ let bolt2;
 let bolt3;
 let bolt4;
 let eye = 35;
+let userClicked = false;
 
 function setup() {
 
@@ -28,6 +29,9 @@ function setup() {
 }
 
 function draw() {
+
+  if (userClicked) {
+
   clear();
   background(20, 30, 50);
   //making ears pop
@@ -63,6 +67,7 @@ function draw() {
     value = 50;
   }
 }
+}
 
 function mouseMoved() {
   if (mouseMoved) {
@@ -79,7 +84,7 @@ function mousePressed() {
     mic = new p5.AudioIn();
     mic.start();
     emerg = !emerg;
-
+    userClicked = true;
   }
 
   //Changes head color
