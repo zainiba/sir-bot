@@ -28,9 +28,14 @@ function setup() {
 
 }
 
+function mousePressed() {
+  mic = new p5.AudioIn()
+  mic.start();
+}
+
 function draw() {
   clear();
-  background(20, 30, 50);
+  background(10, 30, 50);
   //making ears pop
   micLevel = mic.getLevel();
   earsPop = map(micLevel, 0, .3, 1, 48);
@@ -46,7 +51,7 @@ function draw() {
   bolt4.move();
 
 
-  // drawBolt();  
+  // drawBolt();
   drawEar(earsPop);
   drawAnt();
   drawHead();
@@ -58,7 +63,7 @@ function draw() {
     fill(128 + sin(frameCount * 0.1) * 128);
     text('EMERGENCY', width * .55, height * .1);
   }
-  
+
     //Changes antenna color6
   value = value + 3;
   if (value > 255) {
@@ -68,7 +73,7 @@ function draw() {
 
 function mouseMoved() {
 
-  
+
     if (mouseMoved) {
     eye = eye + .5;
     if (eye > 60) {
@@ -86,7 +91,7 @@ function mousePressed() {
 
   }
 
-  //Changes head color 
+  //Changes head color
   if (mousePressed) {
     head = head + 70;
     if (head > 255) {
