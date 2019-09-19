@@ -83,7 +83,7 @@ function mouseMoved() {
 function mousePressed() {
   
   if (mousePressed) {
-    mic = new p5.AudioIn()
+    mic = new p5.AudioIn();
     mic.start();
   }
   
