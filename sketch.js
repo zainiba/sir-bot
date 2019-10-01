@@ -15,38 +15,40 @@ let bolt4;
 let eye = 35;
 
 function setup() {
-  mic = new p5.AudioIn()
-  mic.start();
   createCanvas(500, 500);
   noStroke();
 
-  //the size changes the position of the bolts why????????
-  bolt1 = new Bolt(width * .1, height * .1, 10, .5);
-  bolt2 = new Bolt(width * .1, height * .2, -20, 1.6);
-  bolt3 = new Bolt(width * .3, height * .1, -10, .7);
-  bolt4 = new Bolt(width * .3, height * .3, 20, 1);
+  bolt1 = new Bolt(50, 2, 5, .3);
+  bolt2 = new Bolt(200, 100, -5, .1);
+  bolt3 = new Bolt(300, 250, -10, .2);
+  bolt4 = new Bolt(400, 100, 20, .4);
+}
 
+function mousePressed() {
+  mic = new p5.AudioIn()
+  mic.start();
 }
 
 function draw() {
   clear();
-  background(20, 30, 50);
+  background(10, 30, 50);
   //making ears pop
   micLevel = mic.getLevel();
   earsPop = map(micLevel, 0, .3, 1, 48);
 
-  // bolt1.display();
-  // bolt2.display();
-  bolt3.display();
-  bolt4.display();
 
-  // bolt1.move();
-  // bolt2.move();
-  bolt3.move();
-  bolt4.move();
+    bolt1.display();
+    bolt2.display();
+    bolt3.display();
+    bolt4.display();
+
+    bolt1.move();
+    bolt2.move();
+    bolt3.move();
+    bolt4.move();
 
 
-  // drawBolt();  
+  // drawBolt();
   drawEar(earsPop);
   drawAnt();
   drawHead();
@@ -58,8 +60,8 @@ function draw() {
     fill(128 + sin(frameCount * 0.1) * 128);
     text('EMERGENCY', width * .55, height * .1);
   }
-  
-    //Changes antenna color6
+
+  //Changes antenna color6
   value = value + 3;
   if (value > 255) {
     value = 50;
@@ -68,8 +70,8 @@ function draw() {
 
 function mouseMoved() {
 
-  
-    if (mouseMoved) {
+
+  if (mouseMoved) {
     eye = eye + .5;
     if (eye > 60) {
       eye = 1;
@@ -86,7 +88,7 @@ function mousePressed() {
 
   }
 
-  //Changes head color 
+  //Changes head color
   if (mousePressed) {
     head = head + 70;
     if (head > 255) {

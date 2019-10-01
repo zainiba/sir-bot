@@ -8,31 +8,31 @@ class Bolt {
 
   display() {
     fill(150);
-    
+
     push();
     translate(this.xPos, this.yPos);
     rotate(this.rotation);
     scale(this.size);
     //hexagon
     beginShape();
-    vertex(width * .78, height * .065);
-    vertex(width * .82, height * .065);
-    vertex(width * .84, height * .1);
-    vertex(width * .82, height * .135);
-    vertex(width * .78, height * .135);
-    vertex(width * .76, height * .1);
+    vertex(35, 32);
+    vertex(65, 32);
+    vertex(78, 55);
+    vertex(65,80);
+    vertex(35, 80);
+    vertex(22, 55);
     endShape(CLOSE);
 
     fill(80);
-    ellipse(width * .8, height * .1, 15, 15);
+    ellipse(50, 55, 20, 20);
     pop();
   }
-  
+
   move() {
-    
-    this.rotation++;  
-    
-    if (this.yPos <= 1 ) {
+
+    this.rotation++;
+
+    if (this.yPos <= height ) {
     this.yPos += 1;
     } else {
      this.yPos = -3;
