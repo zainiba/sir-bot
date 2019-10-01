@@ -8,7 +8,7 @@ class Bolt {
 
   display() {
     fill(150);
-    
+
     push();
     translate(this.xPos, this.yPos);
     rotate(this.rotation);
@@ -27,11 +27,11 @@ class Bolt {
     ellipse(width * .8, height * .1, 15, 15);
     pop();
   }
-  
+
   move() {
-    
-    this.rotation++;  
-    
+
+    this.rotation++;
+
     if (this.yPos <= 1 ) {
     this.yPos += 1;
     } else {
