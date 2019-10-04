@@ -17,36 +17,40 @@ let start = false;
 
 function setup() {
   createCanvas(500, 500);
-  background(100);
   noStroke();
 
   bolt1 = new Bolt(50, 2, 5, .3);
   bolt2 = new Bolt(200, 100, -5, .1);
   bolt3 = new Bolt(300, 250, -10, .2);
   bolt4 = new Bolt(400, 100, 20, .4);
-  console.log("after bolts")
 }
 
 function mousePressed() {
-  console.log("mousePressed");
   start = true;
   mic = new p5.AudioIn()
   mic.start();
-
+//emergency text near antenna
+  if (mousePressed) {
+    emerg = !emerg;
+  }
+  //Changes head color
+  if (mousePressed) {
+    head = head + 70;
+    if (head > 255) {
+      head = 0;
+    }
+  }
 }
 
-
-
 function draw() {
-  if (start) {
-console.log("started")
+  if (start === true) {
     clear();
     background(10, 30, 50);
     //making ears pop
     micLevel = mic.getLevel();
     earsPop = map(micLevel, 0, .3, 1, 48);
 
-
+//Bolts in the background
     bolt1.display();
     bolt2.display();
     bolt3.display();
@@ -80,34 +84,17 @@ console.log("started")
 }
 
 function mouseMoved() {
-
-
   if (mouseMoved) {
     eye = eye + .5;
     if (eye > 60) {
       eye = 1;
     }
   }
-
 }
 
-
-
-function mousePressed() {
-  if (mousePressed) {
-    emerg = !emerg;
-
-  }
-
-  //Changes head color
-  if (mousePressed) {
-    head = head + 70;
-    if (head > 255) {
-      head = 0;
-    }
-  }
-
-}
+// function mousePressed() {
+//
+// }
 
 
 
