@@ -13,28 +13,38 @@ let bolt2;
 let bolt3;
 let bolt4;
 let eye = 35;
+let start = false;
 
 function setup() {
   createCanvas(500, 500);
+  background(100);
   noStroke();
 
   bolt1 = new Bolt(50, 2, 5, .3);
   bolt2 = new Bolt(200, 100, -5, .1);
   bolt3 = new Bolt(300, 250, -10, .2);
   bolt4 = new Bolt(400, 100, 20, .4);
+  console.log("after bolts")
 }
 
 function mousePressed() {
+  console.log("mousePressed");
+  start = true;
   mic = new p5.AudioIn()
   mic.start();
+
 }
 
+
+
 function draw() {
-  clear();
-  background(10, 30, 50);
-  //making ears pop
-  micLevel = mic.getLevel();
-  earsPop = map(micLevel, 0, .3, 1, 48);
+  if (start) {
+console.log("started")
+    clear();
+    background(10, 30, 50);
+    //making ears pop
+    micLevel = mic.getLevel();
+    earsPop = map(micLevel, 0, .3, 1, 48);
 
 
     bolt1.display();
@@ -48,23 +58,24 @@ function draw() {
     bolt4.move();
 
 
-  // drawBolt();
-  drawEar(earsPop);
-  drawAnt();
-  drawHead();
-  drawMouth();
-  drawEye();
-  drawPupil();
-  //text emergency
-  if (emerg == true) {
-    fill(128 + sin(frameCount * 0.1) * 128);
-    text('EMERGENCY', width * .55, height * .1);
-  }
+    // drawBolt();
+    drawEar(earsPop);
+    drawAnt();
+    drawHead();
+    drawMouth();
+    drawEye();
+    drawPupil();
+    //text emergency
+    if (emerg == true) {
+      fill(128 + sin(frameCount * 0.1) * 128);
+      text('EMERGENCY', width * .55, height * .1);
+    }
 
-  //Changes antenna color6
-  value = value + 3;
-  if (value > 255) {
-    value = 50;
+    //Changes antenna color6
+    value = value + 3;
+    if (value > 255) {
+      value = 50;
+    }
   }
 }
 
