@@ -14,7 +14,7 @@ let bolt3;
 let bolt4;
 let eye = 35;
 let start = false;
-
+let onLoad = false;
 function setup() {
   createCanvas(500, 500);
   noStroke();
@@ -23,12 +23,18 @@ function setup() {
   bolt2 = new Bolt(200, 100, -5, .1);
   bolt3 = new Bolt(300, 250, -10, .2);
   bolt4 = new Bolt(400, 100, 20, .4);
+
+  onLoad = true;
 }
 
 function mousePressed() {
+  if (onLoad == false) return
+
   start = true;
   mic = new p5.AudioIn()
   mic.start();
+
+
 //emergency text near antenna
   if (mousePressed) {
     emerg = !emerg;
